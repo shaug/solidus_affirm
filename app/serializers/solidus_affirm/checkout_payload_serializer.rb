@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'active_model_serializers'
 
 module SolidusAffirm
   class CheckoutPayloadSerializer < ActiveModel::Serializer
     attributes :merchant, :shipping, :billing, :items, :discounts, :metadata,
-    :order_id, :shipping_amount, :tax_amount, :total
+               :order_id, :shipping_amount, :tax_amount, :total
 
     def merchant
       hsh = {
@@ -32,7 +34,7 @@ module SolidusAffirm
 
     def discounts
       promo_total = object.order.promo_total
-      if promo_total > 0
+      if promo_total.positive?
         {
           promotion_total: {
             discount_amount: promo_total.to_money.cents,
@@ -60,6 +62,7 @@ module SolidusAffirm
 
     def metadata
       return nil if object.metadata.empty?
+
       object.metadata
     end
   end

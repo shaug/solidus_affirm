@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'active_model_serializers'
 
 module SolidusAffirm
@@ -26,6 +28,7 @@ module SolidusAffirm
     # @option config [String] :name The shop name to display in the Affirm checkout.
     # @param metadata [Hash]
     def initialize(order, config, metadata = {})
+      super()
       @order = order
       @config = config
       @metadata = metadata

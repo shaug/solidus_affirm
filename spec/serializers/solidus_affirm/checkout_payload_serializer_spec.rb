@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe SolidusAffirm::CheckoutPayloadSerializer do
@@ -14,10 +16,10 @@ RSpec.describe SolidusAffirm::CheckoutPayloadSerializer do
 
   let(:order) do
     create(:order_with_line_items,
-      line_items_count: 2,
-      line_items_attributes: line_item_attributes,
-      ship_address: shipping_address,
-      billing_address: billing_address)
+           line_items_count: 2,
+           line_items_attributes: line_item_attributes,
+           ship_address: shipping_address,
+           billing_address: billing_address)
   end
   let(:config) do
     {

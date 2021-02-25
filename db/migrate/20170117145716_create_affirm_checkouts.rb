@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateAffirmCheckouts < SolidusSupport::Migration[4.2]
   def change
     create_table :affirm_checkouts do |t|

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'affirm'
 
 module SolidusAffirm
@@ -35,18 +37,18 @@ module SolidusAffirm
     def void(charge_id, _money, _options = {})
       response = ::Affirm::Charge.void(charge_id)
       if response.success?
-        return ActiveMerchant::Billing::Response.new(true, "Transaction Voided")
+        ActiveMerchant::Billing::Response.new(true, "Transaction Voided")
       else
-        return ActiveMerchant::Billing::Response.new(false, response.error.message)
+        ActiveMerchant::Billing::Response.new(false, response.error.message)
       end
     end
 
     def credit(money, charge_id, _options = {})
       response = ::Affirm::Charge.refund(charge_id, amount: money)
       if response.success?
-        return ActiveMerchant::Billing::Response.new(true, "Transaction Credited with #{money}")
+        ActiveMerchant::Billing::Response.new(true, "Transaction Credited with #{money}")
       else
-        return ActiveMerchant::Billing::Response.new(false, response.error.message)
+        ActiveMerchant::Billing::Response.new(false, response.error.message)
       end
     end
   end

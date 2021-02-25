@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spree
   class AffirmController < Spree::StoreController
     protect_from_forgery except: [:confirm]

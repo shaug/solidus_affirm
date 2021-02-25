@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AffirmHelper
   def affirm_js_setup(public_api_key, javascript_url)
     output = %(

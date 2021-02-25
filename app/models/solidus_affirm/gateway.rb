@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SolidusAffirm
   class Gateway < Spree::Gateway
     preference :public_api_key, :string
@@ -41,7 +43,7 @@ module SolidusAffirm
     #
     # If the transaction has not yet been captured, we can void the transaction.
     # Otherwise, we need to issue a refund.
-    def cancel(charge_id, try_credit = true)
+    def cancel(charge_id, try_credit = true) # rubocop:disable Style/OptionalBooleanParameter
       provider
 
       begin

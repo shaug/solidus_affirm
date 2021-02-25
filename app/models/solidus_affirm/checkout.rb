@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SolidusAffirm
   class Checkout < ActiveRecord::Base
     self.table_name = "affirm_checkouts"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Spree::Core::Engine.routes.draw do
   scope :affirm do
     post 'confirm', controller: SolidusAffirm::Config.callback_controller_name, as: :confirm_affirm
